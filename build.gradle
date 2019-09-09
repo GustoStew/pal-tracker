@@ -24,5 +24,24 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("org.hibernate.validator:hibernate-validator:6.0.17.Final")
+    compile("org.springframework:spring-web:5.1.9.RELEASE")
+    compile("org.springframework:spring-webmvc:5.1.9.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-json:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion")
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+
 }
+
+bootRun.environment([
+        "WELCOME_MESSAGE": "hello"
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test",
+        "PORT": "8675",
+        "MEMORY_LIMIT":"12G",
+        "CF_INSTANCE_INDEX":"34",
+        "CF_INSTANCE_ADDR": "123.sesame.street"
+])
